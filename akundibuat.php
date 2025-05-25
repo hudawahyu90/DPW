@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akun dibuat</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Top Up Game - Beranda</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="fade-in">Top Up Game</h1>
+      <nav></nav>
+    </header>
+<div class="container">
+        <div class="form-container">
+            <!-- <div class="left-container">
+                <div class="left-inner-container">
+                    <h1>Welcome Back</h1>
+                    <p>To keep connected with us please login with your personal information</p>
+                    <div class="illustration">
+                        <img src="https://placeholder.svg?height=200&width=200" alt="Login Illustration">
+                    </div>
+                </div>
+            </div> -->
+            <div class="right-container">
+                <div class="right-inner-container">
+                    <h2>Selamat akun anda telah dibuat</h2>
+                    
+                    <!-- <div class="social-login">
+                        <button class="social-btn google">
+                            <i class="fab fa-google"></i>
+                            <span>Google</span>
+                        </button>
+                        <button class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i>
+                            <span>Facebook</span>
+                        </button>
+                        <button class="social-btn twitter">
+                            <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
+                        </button>
+                    </div> -->
+                    
+                    <!-- <div class="divider">
+                        <span>or</span>
+                    </div>
+                     -->
+                    <form action="index.html" method="get">
+                        <div class="input-group">
+                            <div class="input-field">
+                                
+                            </div>
+                            
+                            <div class="input-field">
+                                
+                            </div>
+                            
+                            <div class="options-container">
+                               
+                            </div>
+                        </div>
+                        <div class="register-link">
+                        <p>klik untuk login sekarang </p>
+                    </div>
+                        <button type="submit" class="login-btn">
+                            <span>Login Now</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+
+                    </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>&copy; 2025 Top Up Game. All rights reserved.</footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
+
+    
+</body>
+</html>
