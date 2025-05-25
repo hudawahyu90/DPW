@@ -1,3 +1,49 @@
+<?php
+$host = "localhost";
+$user = "root";
+$pass = "";
+$db   = "topup_game";
+
+$conn = new mysqli($host, $user, $pass, $db);
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
+$nama     = $_POST['nama'];
+$email    = $_POST['email'];
+$password = $_POST['password'];
+$ulangi   = $_POST['ulangi'];
+
+if ($password !== $ulangi) {
+    echo "Password dan ulangi password tidak sama.";
+    exit;
+}
+
+$cek = $conn->prepare("SELECT * FROM users WHERE email = ?");
+$cek->bind_param("s", $email);
+$cek->execute();
+$result = $cek->get_result();
+
+if ($result->num_rows > 0) {
+    echo "Email sudah terdaftar.";
+    exit;
+}
+
+$hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
+$stmt = $conn->prepare("INSERT INTO users (email, password, role) VALUES (?, ?, 'user')");
+$stmt->bind_param("ss", $email, $hashed_password);
+
+if ($stmt->execute()) {
+    header("Location: akundibuat.html");
+    exit;
+} else {
+    echo "Gagal register: " . $conn->error;
+}
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="id">
   <head>
@@ -46,7 +92,8 @@
                         <span>or</span>
                     </div>
                      -->
-                    <form action="akundibuat.html" method="get">
+                    <form action="" method="post">
+
                         <div class="input-group">
                             <div class="input-field">
                                 <input type="text" name="nama" id="nama" required>
