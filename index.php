@@ -91,7 +91,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     </form>
 
                     <div class="register-link">
-                        <p>Don't have an account? <a href="#">Register Now</a></p>
+                        <p>Don't have an account? <a href="register.php">Register Now</a></p>
                         <p style="margin-top: 10px; font-size: 12px; color: #666;">
                             Demo Admin: admin@topupgame.com / admin123
                         </p>

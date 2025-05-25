@@ -50,6 +50,7 @@ CREATE TABLE transactions (
 -- Insert default admin user (password: admin123)
 INSERT INTO users (email, password, role) VALUES 
 ('admin@topupgame.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'admin');
+('wahyu123@gmail.id', '123456', 'user')
 
 -- Insert default games
 INSERT INTO games (name, image, description) VALUES 
