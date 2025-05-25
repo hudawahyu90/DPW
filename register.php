@@ -1,4 +1,9 @@
 <?php
+// Aktifkan error reporting untuk debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+// Koneksi ke database
 $host = "localhost";
 $user = "root";
 $pass = "";
@@ -9,16 +14,18 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-$nama     = $_POST['nama'];
-$email    = $_POST['email'];
-$password = $_POST['password'];
-$ulangi   = $_POST['ulangi'];
+// Ambil data dari form
+$email    = $_POST['email'] ?? '';
+$password = $_POST['password'] ?? '';
+$ulangi   = $_POST['ulangi'] ?? '';
 
+// Validasi
 if ($password !== $ulangi) {
     echo "Password dan ulangi password tidak sama.";
     exit;
 }
 
+// Cek apakah email sudah terdaftar
 $cek = $conn->prepare("SELECT * FROM users WHERE email = ?");
 $cek->bind_param("s", $email);
 $cek->execute();
@@ -29,8 +36,10 @@ if ($result->num_rows > 0) {
     exit;
 }
 
+// Hash password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+// Insert user baru
 $stmt = $conn->prepare("INSERT INTO users (email, password, role) VALUES (?, ?, 'user')");
 $stmt->bind_param("ss", $email, $hashed_password);
 
@@ -43,6 +52,7 @@ if ($stmt->execute()) {
 
 $conn->close();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="id">
@@ -92,7 +102,7 @@ $conn->close();
                         <span>or</span>
                     </div>
                      -->
-                    <form action="" method="post">
+                    <form action="akundibuat.html" method="post">
 
                         <div class="input-group">
                             <div class="input-field">
