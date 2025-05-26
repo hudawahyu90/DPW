@@ -25,16 +25,6 @@ if ($password !== $ulangi) {
     exit;
 }
 
-// Cek apakah email sudah terdaftar
-$cek = $conn->prepare("SELECT * FROM users WHERE email = ?");
-$cek->bind_param("s", $email);
-$cek->execute();
-$result = $cek->get_result();
-
-if ($result->num_rows > 0) {
-    echo "Email sudah terdaftar.";
-    exit;
-}
 
 // Hash password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
